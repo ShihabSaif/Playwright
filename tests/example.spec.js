@@ -44,5 +44,15 @@ test('TC_004', async ({ page }) => {
   await page.locator('xpath = /html/body/table/tbody/tr/td/table/tbody/tr[14]/td[2]/input[1]').click(); //new customer submit button
 });
 
-
+test('TC_005', async ({ page }) => {
+  await page.goto('https://demo.guru99.com/v4/index.php');
+  await page.fill('input[name="uid"]', 'mngr408769');
+  await page.fill('input[name="password"]', 'anasAgA');
+  await page.locator('xpath = /html/body/form/table/tbody/tr[3]/td[2]/input[1]').click(); //login button
+  await page.locator('xpath = /html/body/div[3]/div/ul/li[3]/a').click(); //edit customer button
+  await page.fill('input[name="cusid"]', '22055'); //customer ID field
+  await page.locator('[name = AccSubmit]').click(); //submit button
+  await page.fill('input[name="city"]', 'India');
+  await page.locator('[name = sub]').click(); //submit button
+});
 

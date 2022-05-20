@@ -1,11 +1,13 @@
 const { test, expect } = require('@playwright/test');
 
+/** TC_001: Enter into the website */
 test('TC_001', async ({ page }) => {
   await page.goto('https://demo.guru99.com/v4/index.php');
   const title = page.locator('xpath = /html/body/div[2]/h2');
   await expect(title).toHaveText('Guru99 Bank');
 });
 
+/** TC_002: Login into the website. */
 test('TC_002', async ({ page }) => {
   await page.goto('https://demo.guru99.com/v4/index.php');
   await page.fill('input[name="uid"]', 'mngr408769');
@@ -15,6 +17,7 @@ test('TC_002', async ({ page }) => {
   await expect(title).toHaveText("Welcome To Manager's Page of Guru99 Bank");
 });
 
+/** TC_003: Sign out from account and  return to the homepage. */
 test('TC_003', async ({ page }) => {
   await page.goto('https://demo.guru99.com/v4/index.php');
   await page.fill('input[name="uid"]', 'mngr408769');
@@ -25,6 +28,7 @@ test('TC_003', async ({ page }) => {
   await expect(title).toHaveText('Guru99 Bank');
 });
 
+/** TC_004: Create New Customer */
 test('TC_004', async ({ page }) => {
   await page.goto('https://demo.guru99.com/v4/index.php');
   await page.fill('input[name="uid"]', 'mngr408769');
@@ -44,6 +48,7 @@ test('TC_004', async ({ page }) => {
   await page.locator('xpath = /html/body/table/tbody/tr/td/table/tbody/tr[14]/td[2]/input[1]').click(); //new customer submit button
 });
 
+/** TC_005: Edit customer */
 test('TC_005', async ({ page }) => {
   await page.goto('https://demo.guru99.com/v4/index.php');
   await page.fill('input[name="uid"]', 'mngr408769');
